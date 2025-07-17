@@ -127,7 +127,8 @@ export default function App() {
     );
 
     // if mode than 1 node has an empty taget handle, throw an error toast or else successfully saved toast.
-    if (nodes.length > 1 && nodesWithNoIncoming.length > 1) {
+   if(nodes.length > 1) {
+    if (nodesWithNoIncoming.length > 1) {
       toast('Failed to save the flow', {
         description: 'More than one node has an empty target handle!'
       });
@@ -136,6 +137,11 @@ export default function App() {
         description: 'Continue working!!'
       });
     }
+   } else {
+    toast('Insufficient nodes to build a flow!',{
+      description:"Add more nodes to build a flow."
+    })
+   }
   };
 
   return (
